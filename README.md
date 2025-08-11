@@ -57,7 +57,95 @@ API dibangun dengan pendekatan **Platform as a Service (PaaS)** dan teknologi cl
 
 ## ⚙️ Cara Menjalankan (Local Development)
 
-1. **Clone repository**
+## 📦 Endpoint API
+
+### 🔐 AUTH SERVICE
+
+#### `GET /auth/generate-key`
+
+- **Deskripsi**: Menghasilkan API Key unik yang digunakan untuk mengakses layanan rekomendasi.
+- **Respons**:
+  ```json
+  {
+    "apiKey": "xxxxxxxxxxxxxxxxxx"
+  }
+  ```
+
+---
+
+### 🧠 REKOMENDASI SERVICE
+
+> Semua endpoint pada layanan ini membutuhkan header `x-api-key` dengan API Key yang valid.
+
+#### `POST /rekomendasi`
+
+- **Deskripsi**: Mendapatkan rekomendasi jabatan berdasarkan input data kandidat.
+- **Header**:
+  ```
+  x-api-key: <API_KEY>
+  ```
+- **Body JSON**:
+  ```json
+  {
+    "nama": "Budi",
+    "pengalaman": 5,
+    "kinerja": 85,
+    "pendidikan": "IT",
+    "sertifikasi": ["Project Management"],
+    "kepemimpinan": true,
+    "lamaBekerja": 4,
+    "softSkill": ["Komunikasi"],
+    "disiplin": 80
+  }
+  ```
+- **Respons**:
+  ```json
+  {
+    "jabatan": "Lead Developer"
+  }
+  ```
+
+---
+
+#### `GET /rekomendasi/riwayat`
+
+- **Deskripsi**: Melihat histori hasil rekomendasi berdasarkan API Key.
+- **Query Opsional**:
+  - `nama`: Filter berdasarkan nama kandidat
+  - `tanggalMulai`, `tanggalAkhir`: Filter berdasarkan rentang tanggal (format `YYYY-MM-DD`)
+- **Contoh**:
+  ```
+  GET /rekomendasi/riwayat?nama=Budi&tanggalMulai=2025-06-01&tanggalAkhir=2025-06-30
+  ```
+- **Respons**:
+  ```json
+  [
+    {
+      "nama": "Budi",
+      "hasilRekomendasi": "Lead Developer",
+      ...
+    }
+  ]
+  ```
+
+---
+
+## ⚙️ Menjalankan di Lokal
+
+1. Jalankan perintah:
    ```bash
-   git clone https://github.com/username/WEB-Rekomendasi-Jabatan-API.git
-   cd WEB-Rekomendasi-Jabatan-API
+   docker-compose up --build
+   ```
+
+2. Akses layanan melalui browser atau Postman:
+
+   - 🔑 Generate API Key:  
+     [http://localhost:8080/auth/generate-key](http://localhost:8080/auth/generate-key)
+
+   - 🧠 Hitung Rekomendasi:  
+     `POST` [http://localhost:8080/rekomendasi](http://localhost:8080/rekomendasi)
+
+   - 📊 Cek Riwayat:  
+     `GET` [http://localhost:8080/rekomendasi/riwayat](http://localhost:8080/rekomendasi/riwayat)
+
+---

@@ -149,3 +149,18 @@ API dibangun dengan pendekatan **Platform as a Service (PaaS)** dan teknologi cl
      `GET` [http://localhost:8080/rekomendasi/riwayat](http://localhost:8080/rekomendasi/riwayat)
 
 ---
+
+## 📂 Sumber Kode API
+Anda dapat menemukan kode sumber API ini di repositori GitHub berikut:
+🔗 API Rekomendasi Jabatan – GitHub : https://github.com/Ocauwyn/API-Rekomendasi-Jabatan
+
+## 📸 Contoh Tampilan Website
+### Beranda
+![Beranda](screenshots/halaman-utama.jpg)
+
+### Uji Coba
+![Uji Coba](screenshots/detail-penjahit.jpg)
+
+### Dokumentasi API
+![Dokumentasi API](screenshots/dashboard-admin.jpg)
+

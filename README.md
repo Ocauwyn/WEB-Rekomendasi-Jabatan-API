@@ -156,11 +156,11 @@ Anda dapat menemukan kode sumber API ini di repositori GitHub berikut:
 
 ## 📸 Contoh Tampilan Website
 ### Beranda
-![1](screenshots/1.PNG)
+![Beranda](screenshots/1.PNG)
 
 ### Uji Coba
-![2](screenshots/2.PNG)
+![Uji Coba](screenshots/2.PNG)
 
 ### Dokumentasi API
-![3](3.PNG)
+![Dokumentasi API](screenshots/3.PNG)
 
